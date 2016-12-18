@@ -12,7 +12,7 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "angular-input-stars-directive": "angular-input-stars#^1.6.3",
+    "angular-input-stars": "angular-input-stars#^1.6.3",
     "angular-md5": "^0.1.10"
   },
   "devDependencies": {
