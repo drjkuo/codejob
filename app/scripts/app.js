@@ -2,14 +2,34 @@
 
 /**
  * @ngdoc overview
- * @name codejobApp
+ * @name sampleApp
  * @description
- * # codejobApp
+ * # sampleApp
  *
  * Main module of the application.
  */
+
+/*
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '732081800281253',
+        xfbml      : true,
+        version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));*/
+
 angular
-  .module('codejobApp', [
+  .module('sampleApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -17,21 +37,73 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'marketplace_services',
+    'directives',
+    'angular-md5',
+      'ezfb',
+      'angular-input-stars'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/index-main.html',
+        controller: 'MainCtrl'
       })
+
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'AboutCtrl'
       })
+
+      .when('/contact', {
+          templateUrl: 'views/contact-us.html',
+          controller: 'ContactCtrl'
+      })
+
+        .when('/product/:category', { //route for category
+            templateUrl: 'views/product-details.html',
+            controller: 'ProductCtrl'
+        })
+
+      /*.when('/product', {
+          templateUrl: 'views/product-details.html',
+          controller: 'ProductCtrl'
+      })*/
+
+      .when('/cart', {
+          templateUrl: 'views/cart.html',
+          controller: 'CartCtrl'
+      })
+        .when('/fb',{
+            templateUrl:'views/fb.html',
+            controller:'fbLoginCtrl'
+        })
+
+      .when('/login', {
+          templateUrl: 'views/login.html',
+          controller: 'LoginCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+
+    .config(function (ezfbProvider) {
+        /**
+         * Basic setup
+         *
+         * https://github.com/pc035860/angular-easyfb#configuration
+         */
+        ezfbProvider.setInitParams({
+            appId: '1164390320335366'
+        });
+    });
+
+
+
+
+
+

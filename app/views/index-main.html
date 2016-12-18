@@ -1,0 +1,306 @@
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/price-range.js"></script>
+
+
+<section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>Game</span>-Arts</h1>
+                                <h2>Game Stores</h2>
+                                <p> These great PS4 games are available right now. Click on a game to learn more and then download it digitally or have it shipped to your door.
+                                </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="images/home/game.png" class="girl img-responsive" alt="" />
+                                <img src="images/home/pricing.png"  class="pricing" alt="" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>Our</span>-Pets</h1>
+                                <h2>100% Responsive Pets Toys</h2>
+                                <p>A dog is the only thing on earth that loves you more than he loves himself. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="images/home/pets.png" class="girl img-responsive" alt="" />
+                                <img src="images/home/pricing.png"  class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>Code</span>Job</h1>
+                                <h2>Jobs Interview</h2>
+                                <p>Helpful interview for you to find a job</p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="images/home/Jobs.jpg" class="girl img-responsive" alt="" />
+                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="item">
+                          <div class="col-sm-6">
+                              <h1><span>Music</span>-Fans</h1>
+                              <h2>Music Learning</h2>
+                              <p>Music teachers ... this innovative website will become an indispensable learning tool.</p>
+                              <button type="button" class="btn btn-default get">Get it now</button>
+                          </div>
+                          <div class="col-sm-6">
+                            <img src="images/home/music.jpg" class="girl img-responsive" alt="" />
+                            <img src="images/home/pricing.png" class="pricing" alt="" />
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev" target="_self">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next" target="_self">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>SHOPS</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="" ng-model="category" ng-click="get_gamearts_products()">GameArts</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="" ng-model="category" ng-click="get_ourpets_products()">OurPets</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="" ng-model="category" ng-click="get_codejob_products()">CodeJob</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="" ng-model="category" ng-click="get_iph_products()">Music</a></h4>
+                            </div>
+                        </div>
+                    </div><!--/category-products-->
+
+                    <div class="shipping text-center"><!--shipping-->
+                        <img src="images/home/shipping.jpg" alt="" />
+                    </div><!--/shipping-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">FEATURE ITEMS</h2>
+                    <div ng-repeat="product in products" >
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center" >
+                                        <img ng-src="{{product.productImg}}" ng-click="showProductDetail(product.id)" alt="" />
+                                        <h2>${{product.price}}</h2>
+                                        <p>{{product.productName}}</p>
+                                        <!--<a href="#" class="btn btn-default add-to-cart" ng-click="addProductToCart()" ><i class="fa fa-shopping-cart" ></i>Add to cart</a>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--features_items-->
+            </div>
+        </div>
+
+        <div class="category-tab"><!--category-tab-->
+            <h2 class="title text-center">TOP5 IN EACH SHOP</h2>
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a show-tab href="#game" data-toggle="tab" ng-click="setCategoryto1()">GameArts</a></li>
+                            <li><a show-tab href="#pets" data-toggle="tab" ng-click="setCategoryto2()">OurPets</a></li>
+                            <li><a show-tab href="#jobs" data-toggle="tab" ng-click="setCategoryto3()">CodeJob</a></li>
+                            <li><a show-tab href="#music" data-toggle="tab" ng-click="setCategoryto4()">Music</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="game" >
+                            <div ng-repeat="game in Top5Games">
+                                <div class="col-sm-3 product" >
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center" >
+                                                <img ng-src="{{game.productImg}}"  ng-click="showProductDetail(game.id)" alt="" />
+                                                <h2>${{game.price}}</h2>
+                                                <p>{{game.productName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pets">
+                            <div ng-repeat="pets in Top5Pets">
+                                <div class="col-sm-3 product">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center" >
+                                                <img ng-src="{{pets.productImg}}" ng-click="showProductDetail(pets.id)" alt="" />
+                                                <h2>${{pets.price}}</h2>
+                                                <p>{{pets.productName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="jobs">
+                            <div ng-repeat="jobs in Top5Jobs">
+                                <div class="col-sm-3 product">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center" >
+                                                <img ng-src="{{jobs.productImg}}" ng-click="showProductDetail(jobs.id)" alt="" />
+                                                <h2>${{jobs.price}}</h2>
+                                                <p>{{jobs.productName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="music">
+                            <div ng-repeat="iph in Top5Iph">
+                                <div class="col-sm-3 product">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center" >
+                                                <img ng-src="{{iph.productImg}}" ng-click="showProductDetail(iph.id)" alt="" />
+                                                <h2>${{iph.price}}</h2>
+                                                <p>{{iph.productName}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/category-tab-->
+        <div class="recommended_items"><!--recommended_items-->
+            <h2 class="title text-center">TOP5 IN ENTIRE MARKETPLACE</h2>
+            <div id="top-item-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div ng-repeat="totalTop5 in totalProducts | orderBy: orderByFunction | limitTo: 5">
+                            <div class="col-sm-4 topproduct">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img ng-src="{{totalTop5.productImg}}"  alt="" />
+                                            <h2>${{totalTop5.price}}</h2>
+                                            <p>{{totalTop5.productName}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/recommended_items-->
+
+        <div class="recommended_items"><!--recommended_items-->
+                    <h2 class="title text-center">HISTORY OF VISITED ITEMS</h2>
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div ng-repeat="history in productVisited| limitTo: 3">
+                                    <div class="col-sm-4 ">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img ng-src="{{history.productImg}}"  alt="" />
+                                                    <h2>${{history.price}}</h2>
+                                                    <p>{{history.productName}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div ng-repeat="history in productVisited | limitTo: 3">
+                                    <div class="col-sm-4 topproduct">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img ng-src="{{history.productImg}}"  alt="" />
+                                                    <h2>${{history.price}}</h2>
+                                                    <p>{{history.productName}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev" target="_self">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next" target="_self">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div><!--/recommended_items-->
+
+
+    </div>
+    <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <ul class="list-inline item-details">
+                <li><a href="http://themifycloud.com">ThemifyCloud</a></li>
+                <li><a href="http://themescloud.org">ThemesCloud</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

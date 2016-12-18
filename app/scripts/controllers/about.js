@@ -2,16 +2,13 @@
 
 /**
  * @ngdoc function
- * @name codejobApp.controller:AboutCtrl
+ * @name sampleApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the codejobApp
+ * Controller of the sampleApp
  */
-angular.module('codejobApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+angular.module('sampleApp')
+  .controller('AboutCtrl', function ($scope) {
+    $scope.testName = 'Fang Lu';
+    $scope.test = 'test';
   });
